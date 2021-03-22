@@ -34,9 +34,9 @@ public class TeacherServiceImp implements TeacherService {
 	}
 
 	@Override
-	public Boolean delete(Teacher teacher) {
-		if(teacherRepository.existsById(teacher.getIdTeacher())) {
-			teacherRepository.deleteById(teacher.getIdTeacher());
+	public Boolean delete(Long id_teacher) {
+		if(teacherRepository.existsById(id_teacher)) {
+			teacherRepository.deleteById(id_teacher);
 			return true;
 		}
 		return false;

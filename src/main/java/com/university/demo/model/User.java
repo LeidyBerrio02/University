@@ -34,7 +34,7 @@ public class User {
 	@Column(name="age")
 	private int age;
 
-	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER )
+	@OneToMany(fetch = FetchType.EAGER )
 	@JoinColumn(name="id_user")
 	public List<Role> roles;
 

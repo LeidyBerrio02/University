@@ -10,6 +10,6 @@ import com.university.demo.model.Teacher;
 @Repository
 public interface TeacherRepository extends JpaRepository<Teacher, Long> {
 
-	Optional<Teacher> findById(Long idTeacher);
+	Optional<Teacher> findById(Long id_teacher);
 	
 }

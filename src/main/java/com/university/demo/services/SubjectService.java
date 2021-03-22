@@ -9,6 +9,6 @@ public interface SubjectService {
 	List<Subject> listSubjects();
 	Subject create(Subject subject);
 	Subject search(Subject subject);
-	Boolean delete(Subject subject);
+	Boolean delete(Long idSubject);
 	
 }

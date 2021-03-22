@@ -9,7 +9,7 @@ public interface UserService {
 	List<User> listUsers();
 	User create(User user);
 	User search(User user);
-	Boolean delete(User user);
+	Boolean delete(Long idUser);
 	
 }
 

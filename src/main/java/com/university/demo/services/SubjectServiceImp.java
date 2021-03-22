@@ -34,10 +34,10 @@ public class SubjectServiceImp implements SubjectService {
 	}
 
 	@Override
-	public Boolean delete(Subject subject) {
+	public Boolean delete(Long idSubject) {
 		// TODO Auto-generated method stub
-		if(subjectRepository.existsById(subject.getIdSubject())) {
-			subjectRepository.deleteById(subject.getIdSubject());
+		if(subjectRepository.existsById(idSubject)) {
+			subjectRepository.deleteById(idSubject);
 			return true;
 			}
 		

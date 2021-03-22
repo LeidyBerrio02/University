@@ -14,9 +14,9 @@ public class Role {
 	@Column(name="role")
 	private String role;
 	
-	@JoinColumn(name="id_user")
-	@ManyToMany(fetch = FetchType.LAZY)
-	private User user;
+	/*@JoinColumn(name="id_user")
+	@ManyToOne(fetch = FetchType.LAZY)
+	private User user;*/
 
 	public Long getIdRole() {
 		return idRole;

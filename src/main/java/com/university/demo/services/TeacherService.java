@@ -10,6 +10,6 @@ public interface TeacherService {
 	List<Teacher> listTeachers();
 	Teacher create(Teacher teacher);
 	Teacher search(Teacher teacher);
-	Boolean delete(Teacher teacher);
+	Boolean delete(Long id_teacher);
 	
 }

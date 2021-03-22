@@ -2,6 +2,8 @@ package com.university.demo.model;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity(name="subject")
 @Table(name="subject")
 public class Subject {
@@ -20,9 +22,13 @@ public class Subject {
 	@Column(name="schedule")
 	private String schedule;
 	
+	//@JsonIgnore
 	@JoinColumn(name="id_teacher")
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	private Teacher teacher;
+	
+	@Column(name="quota_max_students")
+	private int quotaMaxStudents;
 
 	public Long getIdSubject() {
 		return idSubject;
@@ -62,6 +68,14 @@ public class Subject {
 
 	public void setTeacher(Teacher teacher) {
 		this.teacher = teacher;
+	}
+
+	public int getQuotaMaxStudents() {
+		return quotaMaxStudents;
+	}
+
+	public void setQuotaMaxStudents(int quotaMaxStudents) {
+		this.quotaMaxStudents = quotaMaxStudents;
 	}
 
 	
