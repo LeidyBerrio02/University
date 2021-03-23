@@ -26,30 +26,32 @@ public class TeacherController {
 	
 	@GetMapping()
 	public String list(Model modelo){
-		List<Teacher> list = teacherService.listTeachers();
-		modelo.addAttribute("list",list);
-		return "ListTeacher";
-	}
-	
-
-	@GetMapping("/viewForm")
-	public String viewForm(Model modelo) {
-		//create object
+		//for list
+		List<Teacher> listTeacher = teacherService.listTeachers();
+		modelo.addAttribute("listTeacher",listTeacher);
+		//for create new
 		Teacher teacher = new Teacher();
 		modelo.addAttribute("teacher", teacher);
 		return "ListTeacher";
 	}
-	
+		
 	@PostMapping("/saving")              //object
 	public String create(@ModelAttribute("teacher") @Valid Teacher teacher) {
 		teacherService.create(teacher);
-		return "redirec:/Teacher";
+		return "redirect:/Teacher";
 	}
 	
 	
-	@GetMapping("/update")
-	public String update() {
-		return "redirect:/Teacher";
+	@GetMapping("/update/{id_teacher}")
+	public String update(Model modelo, Teacher teacher) {
+		teacher = teacherService.search(teacher);
+						//object
+		modelo.addAttribute("teacher",teacher);
+		
+		//list
+		List<Teacher> listTeacher = teacherService.listTeachers();
+		modelo.addAttribute("listTeacher",listTeacher);
+		return "ListTeacher";
 	}
 	
 	@GetMapping("/delete/{id_teacher}")

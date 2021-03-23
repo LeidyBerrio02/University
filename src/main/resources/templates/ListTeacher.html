@@ -4,7 +4,6 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
 <meta charset="UTF-8">
 <title>List Teacher</title>
-</head>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -13,7 +12,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <link rel="stylesheet" type="text/css" href="static/css/style.css"
 	th:href="@{/css/style.css}">
 	<link rel="icon" type="image/png" href="static/images/icon.png" th:href="@{/images/icon.png}" />
-	
+</head>
 <body>
 
 <div class="container">
@@ -21,21 +20,21 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 		
 		<div class="container">
 		<form th:action="@{/Teacher/saving}" th:object="${teacher}" class="form-control" method="POST">
-		
+		<h4>Teacher</h4><hr>
 		<input type="hidden" name="idTeacher" th:field="*{idTeacher}">
 		
 		 <label>DNI</label>
-		<input type="text" id="DNI" th:field="*{DNI}">
+		<input type="number" id="DNI" th:field="*{DNI}" required placeholder="012345...">
 		<label>First Name</label>
-		<input type="text" id="firstName" th:field="*{firstName}">
+		<input type="text" id="firstName" th:field="*{firstName}" required placeholder="First Name">
 		<label>Last Name</label>
-		<input type="text" id="lastName" th:field="*{lastName}">
+		<input type="text" id="lastName" th:field="*{lastName}" required placeholder="Last Name">
 		<label>Status</label>
-		<select th:field="*{activo}">
+		<select th:field="*{activo}"  required>
 		<option value="1">Active</option>
 		<option value="0">Inactive</option>
 		</select>
-		<input type="submit" value="Save" class="btn btn-dark">		
+		<button type="submit" class="btn fa-input"><img src="/images/save.png" th:src="@{/images/save.png}" alt="Edit" width="35" height="35"></button>	
 		</form>
 		
 		</div>
@@ -53,7 +52,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 </thead>
 <tbody>
 
-<tr th:each="var: ${list}">
+<tr th:each="var: ${listTeacher}">
 <td th:text="${var.DNI}">
 <td th:text="${var.firstName}">
 <td th:text="${var.lastName}">
@@ -62,11 +61,15 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
     <td th:unless="${var.activo}">Inactive</td>
     
     <!-- <a th:href="@{/Persona/actualizar/{idPersona}(idPersona=${var.idPersona})}" -->
-    <td><img src="/images/edit.png" alt="Edit"
-			width="30" height="30">
+    <td>
+    <a th:href="@{/Teacher/update/{id_teacher}(idTeacher=${var.idTeacher})}">
+    <img src="/images/edit.png" alt="Edit"
+			width="30" height="30"></a>
 			</td>
 			
-    <td><a th:href="@{/Teacher/delete/{idTeacher}(idTeacher=${var.idTeacher})}"><img src="/images/delete.png" alt="Delete"
+    <td>
+    <a th:href="@{/Teacher/delete/{idTeacher}(idTeacher=${var.idTeacher})}">
+    <img src="/images/delete.png" alt="Delete"
      width="30" height="30"></a>
     </td>
 </tbody>

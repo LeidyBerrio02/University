@@ -1,5 +1,7 @@
 package com.university.demo.model;
 
+import java.util.List;
+
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -27,6 +29,14 @@ public class Subject {
 	@ManyToOne(fetch = FetchType.EAGER)
 	private Teacher teacher;
 	
+	//@JsonIgnore
+	@ManyToMany(fetch = FetchType.LAZY , cascade = CascadeType.ALL)
+	@JoinTable(name="user_has_subject",
+		joinColumns = { @JoinColumn(name="user_id_user") },
+		inverseJoinColumns = { @JoinColumn(name="subject_id_subject") }
+			)
+	private List<User> users;
+
 	@Column(name="quota_max_students")
 	private int quotaMaxStudents;
 
@@ -76,6 +86,14 @@ public class Subject {
 
 	public void setQuotaMaxStudents(int quotaMaxStudents) {
 		this.quotaMaxStudents = quotaMaxStudents;
+	}
+
+	public List<User> getUsers() {
+		return users;
+	}
+
+	public void setUsers(List<User> users) {
+		this.users = users;
 	}
 
 	

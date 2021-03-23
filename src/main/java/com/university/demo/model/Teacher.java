@@ -31,7 +31,7 @@ public class Teacher {
 	@JsonIgnore
 	@OneToMany(mappedBy = "teacher",fetch = FetchType.EAGER)
 	public List<Subject> subjects;
-
+	
 	public Long getIdTeacher() {
 		return idTeacher;
 	}
@@ -80,8 +80,6 @@ public class Teacher {
 		this.subjects = subjects;
 	}
 
-
 	
-	
-	
+		
 }

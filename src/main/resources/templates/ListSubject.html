@@ -4,7 +4,6 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
 <meta charset="UTF-8">
 <title>List Subject</title>
-</head>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -13,10 +12,33 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <link rel="stylesheet" type="text/css" href="static/css/style.css"
 	th:href="@{/css/style.css}">
 	<link rel="icon" type="image/png" href="static/images/icon.png" th:href="@{/images/icon.png}" />
-	
+</head>
 <body>
 
 <div class="container">
+
+<div class="container">
+		<form th:action="@{/Subject/saving}" th:object="${subject}" class="form-control" method="POST">
+		<h4>Subject</h4><hr>
+		<input type="hidden" name="idSubject" th:field="*{idSubject}">
+		
+		 <label>Name</label>
+		<input type="text" id="name" th:field="*{name}" required placeholder="Name">
+		<label>Description</label>
+		<textarea id="description" th:field="*{description}" required placeholder="Description" rows="2" cols="40"></textarea>
+		<label>Schedule</label>
+		<input type="text" id="schedule" th:field="*{schedule}" required placeholder="Days - Hours" >
+		<label>Coupons</label>
+		<input type="number" id="qouta_max_students" th:field="*{quotaMaxStudents}" required > 
+		<label>Teacher</label>
+		<select th:field="*{teacher.idTeacher}" required>
+		<option  th:each="var: ${listTeacher}"  th:value="${var.idTeacher}" th:text="${var.firstName}+' '+ ${var.lastName}"></option>
+		</select>
+		<button type="submit" class="btn fa-input"><img src="/images/save.png" th:src="@{/images/save.png}" alt="Edit" width="35" height="35"></button>	
+		</form>
+		</div>
+		
+		
 
 <table class="table table-hover">
 <thead>
@@ -39,11 +61,13 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <td th:text="${var.teacher.firstName}+' '+${var.teacher.lastName}">
     
     <!-- <a th:href="@{/Persona/actualizar/{idPersona}(idPersona=${var.idPersona})}"  -->
-    <td><img src="/images/edit.png" alt="Edit"
-			width="30" height="30">
+    <td><a th:href="@{/Subject/update/{id_subject}(idSubject=${var.idSubject})}">
+    <img src="/images/edit.png" alt="Edit"
+			width="30" height="30"></a>
 			</td>
-    <td><img src="/images/delete.png" alt="Delete"
-     width="30" height="30">
+    <td><a th:href="@{/Subject/delete/{idSubject}(idSubject=${var.idSubject})}">
+    <img src="/images/delete.png" alt="Delete"
+     width="30" height="30"></a>
     </td>
 </tbody>
 

@@ -37,6 +37,9 @@ public class User {
 	@OneToMany(fetch = FetchType.EAGER )
 	@JoinColumn(name="id_user")
 	public List<Role> roles;
+	
+	@ManyToMany(fetch = FetchType.LAZY , cascade = CascadeType.ALL , mappedBy = "users")
+	private List<Subject> subjects;
 
 	public Long getIdUser() {
 		return idUser;
@@ -108,6 +111,14 @@ public class User {
 
 	public void setRoles(List<Role> roles) {
 		this.roles = roles;
+	}
+
+	public List<Subject> getSubjects() {
+		return subjects;
+	}
+
+	public void setSubjects(List<Subject> subjects) {
+		this.subjects = subjects;
 	}
 
 
