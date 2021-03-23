@@ -6,15 +6,18 @@ import javax.persistence.*;
 
 @Entity(name="user")
 @Table(name="user")
-public class User {
+public class UserUniversity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id_user")
 	private Long idUser;
 	
-	@Column(name="DNI")
-	private String DNI;
+	@Column(name="username")
+	private String username;
+	
+	@Column(name="password")
+	private String password;
 	
 	@Column(name="first_name")
 	private String firstName;
@@ -49,12 +52,21 @@ public class User {
 		this.idUser = idUser;
 	}
 
-	public String getDNI() {
-		return DNI;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setDNI(String dNI) {
-		DNI = dNI;
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public String getFirstName() {

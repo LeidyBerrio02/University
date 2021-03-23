@@ -1,6 +1,8 @@
 package com.university.demo.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+
 
 @Entity(name="role")
 @Table(name="role")
@@ -12,6 +14,7 @@ public class Role {
 	private Long idRole;
 	
 	@Column(name="role")
+	@NotEmpty
 	private String role;
 	
 	/*@JoinColumn(name="id_user")

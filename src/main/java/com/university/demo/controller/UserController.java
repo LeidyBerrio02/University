@@ -17,9 +17,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.university.demo.model.Subject;
-import com.university.demo.model.User;
+import com.university.demo.model.UserUniversity;
 import com.university.demo.services.SubjectService;
-import com.university.demo.services.UserService;
+import com.university.demo.services.UserUniversityService;
 
 @Controller
 @RequestMapping("/User")
@@ -27,7 +27,7 @@ public class UserController {
 	
 	//injection dependencies
 	@Autowired
-	public UserService userService;
+	public UserUniversityService userService;
 	
 	@Autowired
 	public SubjectService subjectService;
@@ -39,17 +39,17 @@ public class UserController {
 	
 	@GetMapping
 	public String list(Model modelo){
-		List<User> listUser = userService.listUsers();
+		List<UserUniversity> listUser = userService.listUsers();
 		modelo.addAttribute("listUser", listUser);
 		
 		//create object
-		User user = new User();
+		UserUniversity user = new UserUniversity();
 		modelo.addAttribute("user", user);
 		 return "User";
 	}
 	
 	@PostMapping("/saving")
-	public String create(@ModelAttribute("user")@Valid User user) {
+	public String create(@ModelAttribute("user")@Valid UserUniversity user) {
 		 userService.create(user);
 		 return "redirect:/User";
 	}

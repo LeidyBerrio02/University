@@ -35,7 +35,7 @@ public class Subject {
 		joinColumns = { @JoinColumn(name="user_id_user") },
 		inverseJoinColumns = { @JoinColumn(name="subject_id_subject") }
 			)
-	private List<User> users;
+	private List<UserUniversity> users;
 
 	@Column(name="quota_max_students")
 	private int quotaMaxStudents;
@@ -88,11 +88,11 @@ public class Subject {
 		this.quotaMaxStudents = quotaMaxStudents;
 	}
 
-	public List<User> getUsers() {
+	public List<UserUniversity> getUsers() {
 		return users;
 	}
 
-	public void setUsers(List<User> users) {
+	public void setUsers(List<UserUniversity> users) {
 		this.users = users;
 	}
 
