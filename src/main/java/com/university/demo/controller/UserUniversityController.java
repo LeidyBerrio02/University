@@ -23,7 +23,7 @@ import com.university.demo.services.UserUniversityService;
 
 @Controller
 @RequestMapping("/User")
-public class UserController {
+public class UserUniversityController {
 	
 	//injection dependencies
 	@Autowired

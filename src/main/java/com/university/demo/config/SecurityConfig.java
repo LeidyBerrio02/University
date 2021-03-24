@@ -38,38 +38,26 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter{
 		 http
 		 	.authorizeRequests().antMatchers(resources).permitAll()
 		 	.antMatchers("/login").permitAll()
-		 	.antMatchers("/saving/", "/update/**", "/delete/**" ).hasAnyRole("ADMIN")
-		 	.antMatchers("/User/**").hasAnyRole("USER").and()
-		 	
+		 	.antMatchers("*/**", "/saving/", "/update/**", "/delete/**", "/Teacher/**", "/Subject/**" ).hasAnyRole("ADMIN")
+		 	.antMatchers("/User/**").hasAnyRole("USER")
+		 	.and()
 		 	.formLogin()
 		 	.loginPage("/login")
 		 	.permitAll()
-		 	.defaultSuccessUrl("/")
+		 	.defaultSuccessUrl("/Inicio")
 		 	.failureUrl("/login?error=true")
-		 
-		 
-		 
+		 	.usernameParameter("username")
+		 	.passwordParameter("password")
+		 	.and()
+		 	.exceptionHandling().accessDeniedPage("/Error/404")
+		 	.and()
+		 	.exceptionHandling().accessDeniedPage("/Error/403")
+		 	.and()
+		 	.logout()
+		 	.permitAll()
+		 	.logoutSuccessUrl("/login?logout");
+		 	 
 	 }
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
 	 
 }
 

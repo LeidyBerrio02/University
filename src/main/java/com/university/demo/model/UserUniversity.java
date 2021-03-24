@@ -4,8 +4,8 @@ import java.util.List;
 
 import javax.persistence.*;
 
-@Entity(name="user")
-@Table(name="user")
+@Entity(name="useruniversity")
+@Table(name="useruniversity")
 public class UserUniversity {
 	
 	@Id

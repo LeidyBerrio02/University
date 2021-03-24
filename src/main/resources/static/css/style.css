@@ -1,5 +1,6 @@
 .container{
 	margin-top: 10px;
+	padding-top: auto;
 	
 }
 
@@ -13,3 +14,32 @@
 }
 
 */
+h2{
+	color: white;
+	padding: auto;
+	margin: auto;
+	text-align: right;
+	font-family: sans-serif;
+	font-size: xx-large;
+	
+}
+
+#login{
+	background-color: transparent;
+	color: white;
+	border: solid white;
+	margin-left: 50px;
+	padding: auto;
+}
+
+
+#butt{
+	margin: 10;
+}
+
+
+#img{
+	width: 300px;
+	height: 300px;
+	margin : 50px
+}
