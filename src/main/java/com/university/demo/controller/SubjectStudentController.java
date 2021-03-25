@@ -1,5 +1,4 @@
 package com.university.demo.controller;
-
 import java.util.List;
 
 import javax.validation.Valid;
@@ -7,7 +6,6 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,14 +14,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.university.demo.model.Subject;
 import com.university.demo.model.Teacher;
+import com.university.demo.model.UserUniversity;
 import com.university.demo.services.SubjectService;
 import com.university.demo.services.TeacherService;
 import com.university.demo.services.UserUniversityService;
 
 @Controller
-@RequestMapping("/Subject")
-public class SubjectController {
-	
+@RequestMapping("/SubjectStudent")
+public class SubjectStudentController {
+
+
 	//inject dependencies
 	@Autowired
 	public SubjectService subjectService;
@@ -52,14 +52,20 @@ public class SubjectController {
 		//list teachers for select
 		List<Teacher> listTeacher = teacherService.listTeachers();
 		modelo.addAttribute("listTeacher", listTeacher);
-		return "ListSubject";
+		
+		//list students
+		List<UserUniversity> listStudents = userUniversityService.listStudents();
+		modelo.addAttribute("listStudents", listStudents);
+		return "ListSubjectStudent";
 	}
 	
 	@PostMapping("/saving")				//object
 	public String create(@ModelAttribute("subject")@Valid Subject subject) {
+		
 		 subjectService.create(subject);
-		 return "redirect:/Subject";
+		 return "redirect:/SubjectStudent";
 	}
+	/*
 	
 	@GetMapping("/update/{id_subject}")
 	public String update(Model modelo, Subject subject ){
@@ -74,11 +80,11 @@ public class SubjectController {
 		//list teachers for select
 		List<Teacher> listTeacher = teacherService.listTeachers();
 		modelo.addAttribute("listTeacher", listTeacher);
-		return "ListSubject";
+		return "ListSubjectStudent";
 		
-	}
+	}*/
 	
-	/*@GetMapping("/addStudent/{id_subject}")
+	@GetMapping("/addStudent/{id_subject}")
 	public String addStudent(Model modelo, Subject subject ){
 		subject = subjectService.search(subject);
 									//object
@@ -91,11 +97,15 @@ public class SubjectController {
 		//list teachers for select
 		List<Teacher> listTeacher = teacherService.listTeachers();
 		modelo.addAttribute("listTeacher", listTeacher);
+		
+		//list students
+				List<UserUniversity> listStudents = userUniversityService.listStudents();
+				modelo.addAttribute("listStudents", listStudents);
 		return "ListSubjectStudent";
 		
 	}
 	
-	@GetMapping("/delete/{id_subject}")
+	/*@GetMapping("/delete/{id_subject}")
 	public String delete(@PathVariable Long id_subject) {
 		 subjectService.delete(id_subject);
 		 return "redirect:/Subject";

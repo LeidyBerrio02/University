@@ -18,7 +18,7 @@ public class SubjectServiceImp implements SubjectService {
 	@Override
 	public List<Subject> listSubjects() {
 		// TODO Auto-generated method stub
-		return subjectRepository.findAll();
+		return subjectRepository.listOrderBy();
 	}
 
 	@Override

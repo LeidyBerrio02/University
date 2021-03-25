@@ -26,20 +26,30 @@
 	<link rel="icon" type="image/png" href="static/images/icon.png" th:href="@{/images/icon.png}" />
 	</head>
 <body id="body">
+<form method="POST" th:action="@{/logout}">
+					<a href="#" onclick="this.parentNode.submit();">
+					<img id="img4" src="static/images/logout.png" th:src="@{/images/logout.png}"></a>
+				</form>
 <div class="container">
 
 
 <div class="modal-dialog text-center" id="div">
         <div class="col-sm-8 main-section"><h2>UNIVERSITY</h2>
             <div class="modal-content" id="login">
-               <h1 th:inline="text">Welcome! <!-- [[${#httpServletRequest.remoteUser}]]!--></h1>
+               <!--<h1 th:inline="text">Welcome!  [[${#httpServletRequest.remoteUser}]]!</h1>-->
             </div>
-        </div>
-        
-               <img id="img" src="static/images/subject.jpg" th:src="@{/images/subject.jpg}" width="300" height="300"/>
+        </div>      
     </div>
+    
+    <a class="active" href="/SubjectStudent"><img id="img" src="static/images/ins.png" th:src="@{/images/ins.png}"/></a>
+    <a class="active" href="/Subject"><img id="img" src="static/images/subject.jpg" th:src="@{/images/subject.jpg}"/></a>
+            <a class="active" href="/Teacher"><img id="img1" src="static/images/teacher.png" th:src="@{/images/teacher.png}"/></a>
+		<a href="/Student"><img id="img2" src="static/images/student.png" th:src="@{/images/student.png}"/></a>
+		
 
 </div>
+
+
 <body>
 
 </body>

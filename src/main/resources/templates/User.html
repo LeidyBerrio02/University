@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>Users</title>
 <meta charset="UTF-8">
-<title>List Subject</title>
+<title>List User</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -19,14 +19,47 @@
 <div class="container">
 
 <div class="container">
-
+<a class="active" href="/Inicio"><img id="img3" src="static/images/home2.png" th:src="@{/images/home2.png}" width="90" height="90"/></a>
+<h4>Users</h4>
 <form th:action="@{/User/saving}" th:object="${user}" method="POST">
 
-<h4>User</h4><hr>
+
 		
 </form >
 
 </div>
+<h5>Students</h5><hr>
+<table class="table table-striped">
+<thead>
+<tr>
+<th scope="col">DNI</th>
+<th scope="col">Name</th>
+<th scope="col">Number Phone</th>
+<th scope="col">Address</th>
+<th scope="col">Mail</th>
+<th scope="col">Age</th>
+<th scope="col">Subjects</th>
+</tr>
+</thead>
+<tbody>
+<tr th:each="var: ${listS}">
+<td th:text="${var.username}"></td>
+<td th:text="${var.firstName} + ' '+ ${var.lastName}"></td>
+<td th:text="${var.numberPhone}"></td>
+<td th:text="${var.address}"></td>
+<td th:text="${var.mail}"></td>
+<td th:text="${var.age}"></td>
+<td>
+ <th:block th:each="sub, iter: ${var.subjects}">
+ <label th:text="${sub.name}"></label>
+ <th:block th:if="${!iter.last}">  , </th:block>
+ 
+ </td>
+</tbody>
+</table>
+<br>
+
+<h5>Admin's</h5><hr>
 
 <table class="table table-striped">
 <thead>
@@ -41,7 +74,7 @@
 </tr>
 </thead>
 <tbody>
-<tr th:each="var: ${listUser}">
+<tr th:each="var: ${listA}">
 <td th:text="${var.username}"></td>
 <td th:text="${var.firstName} + ' '+ ${var.lastName}"></td>
 <td th:text="${var.numberPhone}"></td>

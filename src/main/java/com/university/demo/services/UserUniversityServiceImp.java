@@ -74,6 +74,20 @@ public class UserUniversityServiceImp implements UserUniversityService , UserDet
 		return false;
 	}
 
+
+	@Override
+	public List<UserUniversity> listStudents() {
+		// TODO Auto-generated method stub
+		return userUniversityRepository.listStudents();
+	}
+
+
+	@Override
+	public List<UserUniversity> listAdmin() {
+		// TODO Auto-generated method stub
+		return userUniversityRepository.listAdmin();
+	}
+
 	
 
 }

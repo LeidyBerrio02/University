@@ -19,11 +19,10 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 					<img id="img4" src="static/images/logout.png" th:src="@{/images/logout.png}"></a>
 				</form>
 <div class="container">
-
-<div class="container">
 <a class="active" href="/Inicio"><img id="img3" src="static/images/home2.png" th:src="@{/images/home2.png}" width="90" height="90"/></a>
 
-		<form th:action="@{/Subject/saving}" th:object="${subject}" class="form-control" method="POST">
+
+		<form th:action="@{/SubjectStudent/saving}" th:object="${subject}" class="form-control" method="POST">
 		<h4>Subject</h4><hr>
 		<input type="hidden" name="idSubject" th:field="*{idSubject}">
 		
@@ -39,13 +38,18 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 		<select th:field="*{teacher.idTeacher}" required>
 		<option  th:each="var: ${listTeacher}"  th:value="${var.idTeacher}" th:text="${var.firstName}+' '+ ${var.lastName}"></option>
 		</select>
+		<label>Select your Name</label>
+		<select th:field="*{users}" required>
+		<option th:each="varS: ${listStudents}" th:value="${varS.idUser}" th:text="${varS.FirstName} + ' '+ ${varS.lastName} "></option>
+		</select>
 		<button type="submit" class="btn fa-input"><img src="/images/save.png" th:src="@{/images/save.png}" alt="Edit" width="35" height="35"></button>	
 		</form>
 		</div>
 		
 		
+		<h3>Subjects for Students</h3><hr>
 
-<table class="table table-hover">
+<table class="table table-hover table-striped" id="t">
 <thead>
 <tr>
 <th scope="col">Name</th>
@@ -53,8 +57,9 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <th scope="col">Schedule</th>
 <th scope="col">Coupons</th>
 <th scope="col">Teacher</th>
-<th scope="col">Edit</th>
-<!-- <th scope="col">Delete</th>-->
+<th scope="col">Students</th>
+<th scope="col">Add</th>
+
 </thead>
 <tbody>
 
@@ -64,16 +69,17 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <td th:text="${var.schedule}">
 <td th:text="${var.quotaMaxStudents}">
 <td th:text="${var.teacher.firstName}+' '+${var.teacher.lastName}">
-    
+<td>
+<th:block th:each="st, iter: ${var.users}">
+<label th:text="${st.firstName}"></label>
+ <th:block th:if="${!iter.last}">  , </th:block>
+    </td>
+ 
     <!-- <a th:href="@{/Persona/actualizar/{idPersona}(idPersona=${var.idPersona})}"  -->
-    <td><a th:href="@{/Subject/update/{id_subject}(idSubject=${var.idSubject})}">
+    <td><a th:href="@{/SubjectStudent/addStudent/{id_subject}(idSubject=${var.idSubject})}">
     <img src="/images/edit.png" alt="Edit"
-			width="30" height="30"></a>
+			width="30" height="30">Add Subject</a>
 			</td>
-    <!-- <td><a th:href="@{/Subject/delete/{idSubject}(idSubject=${var.idSubject})}">
-    <img src="/images/delete.png" alt="Delete"
-     width="30" height="30"></a>
-    </td>-->
 </tbody>
 
 

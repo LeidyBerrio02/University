@@ -22,7 +22,7 @@ import com.university.demo.services.SubjectService;
 import com.university.demo.services.UserUniversityService;
 
 @Controller
-@RequestMapping("/User")
+@RequestMapping("/Student")
 public class UserUniversityController {
 	
 	//injection dependencies
@@ -45,6 +45,13 @@ public class UserUniversityController {
 		//create object
 		UserUniversity user = new UserUniversity();
 		modelo.addAttribute("user", user);
+		
+		List<UserUniversity> listStudent = userService.listStudents();
+		modelo.addAttribute("listS", listStudent);
+
+		List<UserUniversity> listAdmin = userService.listAdmin();
+		modelo.addAttribute("listA", listAdmin);
+		
 		 return "User";
 	}
 	

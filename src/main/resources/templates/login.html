@@ -46,10 +46,10 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                     <button type="submit" id="butt" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i>  Login </button>
                 </form>
                 <div th:if="${param.error}" class="alert alert-danger" role="alert">
-		            Incorrect User or Password.
+		            Incorrect Username or Password.
 		        </div>
 		        <div th:if="${param.logout}" class="alert alert-success" role="alert">
-		            Logout.
+		            <strong>Logout</strong>
 		        </div>
             </div>
         </div>

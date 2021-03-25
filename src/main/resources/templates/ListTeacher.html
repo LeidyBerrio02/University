@@ -14,9 +14,13 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 	<link rel="icon" type="image/png" href="static/images/icon.png" th:href="@{/images/icon.png}" />
 </head>
 <body>
-
+<form method="POST" th:action="@{/logout}">
+					<a href="#" onclick="this.parentNode.submit();">
+					<img id="img4" src="static/images/logout.png" th:src="@{/images/logout.png}"></a>
+				</form>
 <div class="container">
 
+		<a class="active" href="/Inicio"><img id="img3" src="static/images/home2.png" th:src="@{/images/home2.png}" width="90" height="90"/></a>
 		
 		<div class="container">
 		<form th:action="@{/Teacher/saving}" th:object="${teacher}" class="form-control" method="POST">
