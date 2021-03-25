@@ -101,18 +101,8 @@ public class SubjectStudentController {
 		//list students
 				List<UserUniversity> listStudents = userUniversityService.listStudents();
 				modelo.addAttribute("listStudents", listStudents);
-		return "ListSubjectStudent";
+		return "AddSubjectStudent";
 		
 	}
-	
-	/*@GetMapping("/delete/{id_subject}")
-	public String delete(@PathVariable Long id_subject) {
-		 subjectService.delete(id_subject);
-		 return "redirect:/Subject";
-	}
-	
-	*/
-	
-	
 
 }

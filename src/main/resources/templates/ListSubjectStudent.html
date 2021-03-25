@@ -14,6 +14,9 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 	<link rel="icon" type="image/png" href="static/images/icon.png" th:href="@{/images/icon.png}" />
 </head>
 <body>
+
+<div class="container"> 
+
 <form method="POST" th:action="@{/logout}">
 					<a href="#" onclick="this.parentNode.submit();">
 					<img id="img4" src="static/images/logout.png" th:src="@{/images/logout.png}"></a>
@@ -21,7 +24,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <div class="container">
 <a class="active" href="/Inicio"><img id="img3" src="static/images/home2.png" th:src="@{/images/home2.png}" width="90" height="90"/></a>
 
-
+<!-- 
 		<form th:action="@{/SubjectStudent/saving}" th:object="${subject}" class="form-control" method="POST">
 		<h4>Subject</h4><hr>
 		<input type="hidden" name="idSubject" th:field="*{idSubject}">
@@ -44,7 +47,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 		</select>
 		<button type="submit" class="btn fa-input"><img src="/images/save.png" th:src="@{/images/save.png}" alt="Edit" width="35" height="35"></button>	
 		</form>
-		</div>
+		</div>-->
 		
 		
 		<h3>Subjects for Students</h3><hr>
@@ -78,16 +81,18 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
     <!-- <a th:href="@{/Persona/actualizar/{idPersona}(idPersona=${var.idPersona})}"  -->
     <td><a th:href="@{/SubjectStudent/addStudent/{id_subject}(idSubject=${var.idSubject})}">
     <img src="/images/edit.png" alt="Edit"
-			width="30" height="30">Add Subject</a>
+			width="30" height="30">view more information</a>
+			
 			</td>
 </tbody>
 
-
-
 </table>
 </div>
+</div>
 
-
+<footer class="footer">
+  <p>&copy; 2021 For Leidy Berrio</p>
+</footer>
 <script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
