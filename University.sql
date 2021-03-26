@@ -57,10 +57,17 @@ insert into subject values (1,'English','Here will you learn more english for yo
 insert into subject values (2,'Programaming','Here will you learn more Programaming for you laboral life, you are the best. ¡Successes!','Monday-Wednesday-Friday 10:00 am - 12:00pm',2,20);
 insert into subject values (3,'Theory','You will shoulder know all about programming ¡Successes!','Monday-Tuesday-Wednesday-Thursday-Friday 12:00 am - 3:00pm',2,20);
 
+insert into subject values (4,'Spanish','Here you will learn lenguaje spanish ¡Successes!','Monday-Friday 12:00 am - 3:00pm',14,10);
+insert into subject values (6,'Java','You will shoulder know all about programming in Java ¡Successes!','Tuesday-Thursday- 7:00 am - 9:00am',14,10);
+
 desc teacher;
 select * from teacher;
 desc subject;
-select * from subject;
+SELECT 
+    *
+FROM
+    subject
+ORDER BY name ASC;
 desc userUniversity;
 select * from userUniversity;
 desc role;
@@ -73,11 +80,16 @@ insert into userUniversity values (1,456700,'Cristhen', 'James Bill','3208402029
 insert into userUniversity values (2,456312,'Jessica', 'Cameron Diaz','3219823377','Av Philadelphia 34c','JCameron@mail.com',20);
 insert into userUniversity values (3,457624,'James', 'Wridel Jener','3140928821','Av Philadelphia 36d','JamesJener@mail.com',21);
 insert into userUniversity values (4,230013,'Roberth Davinson', 'Huil','3167823411','Av Washinton 16a','RobertDH@mail.com',40);
+insert into userUniversity values (5,230014,'Gian Josue', 'James Mendez','3140928829','Av Washinton pp0','Gian123@mail.com',30,230014);
+insert into userUniversity values (6,230001,'Manuel Nick', 'Bermudex Huil','3163433411','Av Philadelphia 1a','Manuel@mail.com',24,230001);
+insert into userUniversity values (7,635533,'Nicolas Park', 'Hamaica Trueba','3142621411','Av New York b1','NicolasHamaica@mail.com',29,635533);
 
 insert into role values (1,'ROLE_ADMIN',3);
 insert into role values (2,'ROLE_ADMIN',4);
 insert into role values (3,'ROLE_USER',1);
 insert into role values (4,'ROLE_USER',2);
+
+select * from role;
 
 desc user_has_subject;
 select * from user_has_subject;
@@ -86,6 +98,8 @@ select * from subject;
 select * from userUniversity;
 insert into user_has_subject values(1,1);
 insert into user_has_subject values(1,2);
+
+select * from useruniversity u inner join role r on r.id_user = u.id_user where role = "ROLE_USER";
 
 desc user_has_subject;
 
@@ -102,6 +116,7 @@ alter table user add column password varchar(225);
 
 alter table user rename userUniversity;
 
+delete from user_has_subject where user_id_user= 3;
 
 select distinct role from role;
 
