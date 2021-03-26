@@ -8,6 +8,7 @@ public interface TeacherService {
 
 
 	List<Teacher> listTeachers();
+	List<Teacher> listTeachersActive();
 	Teacher create(Teacher teacher);
 	Teacher search(Teacher teacher);
 	Boolean delete(Long id_teacher);

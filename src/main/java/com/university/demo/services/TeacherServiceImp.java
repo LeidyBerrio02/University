@@ -42,4 +42,10 @@ public class TeacherServiceImp implements TeacherService {
 		return false;
 	}
 
+	@Override
+	public List<Teacher> listTeachersActive() {
+		// TODO Auto-generated method stub
+		return teacherRepository.listTeacherActive();
+	}
+
 }

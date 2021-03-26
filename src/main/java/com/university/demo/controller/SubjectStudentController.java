@@ -50,7 +50,7 @@ public class SubjectStudentController {
 		Subject subject = new Subject();
 		modelo.addAttribute("subject", subject);
 		//list teachers for select
-		List<Teacher> listTeacher = teacherService.listTeachers();
+		List<Teacher> listTeacher = teacherService.listTeachersActive();
 		modelo.addAttribute("listTeacher", listTeacher);
 		
 		//list students
@@ -95,7 +95,7 @@ public class SubjectStudentController {
 		modelo.addAttribute("list", list);
 
 		//list teachers for select
-		List<Teacher> listTeacher = teacherService.listTeachers();
+		List<Teacher> listTeacher = teacherService.listTeachersActive();
 		modelo.addAttribute("listTeacher", listTeacher);
 		
 		//list students

@@ -32,9 +32,6 @@ public class SubjectController {
 	@Autowired
 	private TeacherService teacherService;	
 	
-	@Autowired 
-	private UserUniversityService userUniversityService;
-	
 	/*@GetMapping()
 	public List<Subject> list(){
 		return subjectService.listSubjects();
@@ -50,7 +47,7 @@ public class SubjectController {
 		Subject subject = new Subject();
 		modelo.addAttribute("subject", subject);
 		//list teachers for select
-		List<Teacher> listTeacher = teacherService.listTeachers();
+		List<Teacher> listTeacher = teacherService.listTeachersActive();
 		modelo.addAttribute("listTeacher", listTeacher);
 		return "ListSubject";
 	}
@@ -72,7 +69,7 @@ public class SubjectController {
 		modelo.addAttribute("list", list);
 
 		//list teachers for select
-		List<Teacher> listTeacher = teacherService.listTeachers();
+		List<Teacher> listTeacher = teacherService.listTeachersActive();
 		modelo.addAttribute("listTeacher", listTeacher);
 		return "ListSubject";
 		
