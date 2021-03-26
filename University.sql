@@ -116,7 +116,9 @@ alter table user add column password varchar(225);
 
 alter table user rename userUniversity;
 
-delete from user_has_subject where user_id_user= 3;
+delete from user_has_subject where subject_id_subject= 2;
+
+select * from teacher where activo=1;
 
 select distinct role from role;
 

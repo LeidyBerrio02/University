@@ -1,0 +1,11 @@
+Información sobre login
+
+Los usuarios estudiantes ingresan con su dni en ambos campos del login
+
+Los administradores con la siguiente información:
+
+DNI: 457624
+PASSWORD: 12345
+
+DNI: 230013
+PASSWORD: 54321
