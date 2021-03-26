@@ -10,5 +10,5 @@ public interface SubjectService {
 	Subject create(Subject subject);
 	Subject search(Subject subject);
 	Boolean delete(Long idSubject);
-	
+	void minQouta(Subject subject);
 }

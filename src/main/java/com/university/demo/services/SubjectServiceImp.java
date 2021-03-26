@@ -44,4 +44,12 @@ public class SubjectServiceImp implements SubjectService {
 		return false;
 	}
 
+	@Override
+	public void minQouta(Subject subject) {
+		int num = 1;
+		int quota = subject.getQuotaMaxStudents();
+		quota = subject.getQuotaMaxStudents() - num;
+		subject.setQuotaMaxStudents(quota);
+	}
+
 }

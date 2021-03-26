@@ -27,30 +27,27 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 		<h4>Subject</h4><hr>
 		<input type="hidden" name="idSubject" th:field="*{idSubject}">
 		
-<table>
-<thead><tr>
-		<th>Name</th>
-		<td th:text="*{name}"></td><tr>
-		<th>Description</th>
-		<td th:text="*{description}"><tr>
-		<th>Schedule</th>
-		<td th:text="*{schedule}"><tr>
-		<th>Coupons</th>
-		<td th:text="*{quotaMaxStudents}"><tr>
-		<th>Teacher</th>
-        <th th:field="*{teacher.idTeacher}">
-        <select  th:field="*{teacher.idTeacher}" required>
-		<option disabled  th:each="var: ${listTeacher}"  th:value="${var.idTeacher}" th:text="${var.firstName}+' '+ ${var.lastName}"></option>
+
+		<label>Name</label>
+		<input type="text" id="name" th:field="*{name}" required placeholder="Name">
+		<label>Description</label>
+		<textarea id="description" th:field="*{description}" required placeholder="Description" rows="2" cols="40"></textarea>
+		<label>Schedule</label>
+		<input type="text" id="schedule" th:field="*{schedule}" required placeholder="Days - Hours" >
+		<label>Coupons</label>
+		<input type="number" id="qouta_max_students" th:field="*{quotaMaxStudents}" required > 
+		<label>Teacher</label>
+        <select th:field="*{teacher.idTeacher}" required>
+		<option th:each="var: ${listTeacher}"  th:value="${var.idTeacher}" th:text="${var.firstName}+' '+ ${var.lastName}"></option>
 		</select>
+		
 
-	</table>			
-
-
-		<label><strong>Select your Name</strong></label>
+<hr>
+		<h3>Select your Name for Inscription</h3><hr>
 		<select th:field="*{users}" required>
 		<option th:each="varS: ${listStudents}" th:value="${varS.idUser}" th:text="${varS.FirstName} + ' '+ ${varS.lastName} "></option>
 		</select>
-		<button type="submit" class="btn fa-input"><img src="/images/save.png" th:src="@{/images/save.png}" alt="Edit" width="35" height="35"></button>	
+		<button id="textButton" type="submit" title="Save" class="btn fa-input"><img src="/images/save.png" th:src="@{/images/save.png}" alt="SAVE" width="45" height="45"></button>	
 		</form>
 		</div>
 		

@@ -61,8 +61,8 @@ public class SubjectStudentController {
 	
 	@PostMapping("/saving")				//object
 	public String create(@ModelAttribute("subject")@Valid Subject subject) {
-		
-		 subjectService.create(subject);
+		subjectService.minQouta(subject);
+		 subjectService.create(subject); 
 		 return "redirect:/SubjectStudent";
 	}
 	/*
@@ -99,8 +99,8 @@ public class SubjectStudentController {
 		modelo.addAttribute("listTeacher", listTeacher);
 		
 		//list students
-				List<UserUniversity> listStudents = userUniversityService.listStudents();
-				modelo.addAttribute("listStudents", listStudents);
+		List<UserUniversity> listStudents = userUniversityService.listStudents();
+		modelo.addAttribute("listStudents", listStudents);
 		return "AddSubjectStudent";
 		
 	}

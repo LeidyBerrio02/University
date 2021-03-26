@@ -52,36 +52,30 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 		
 		<h3>Subjects for Students</h3><hr>
 
-<table class="table table-hover table-striped" id="t">
+<table class="table" id="t">
 <thead>
 <tr>
 <th scope="col">Name</th>
-<th scope="col">Description</th>
 <th scope="col">Schedule</th>
-<th scope="col">Coupons</th>
-<th scope="col">Teacher</th>
-<th scope="col">Students</th>
-<th scope="col">Add</th>
+<th scope="col">Action</th>
 
 </thead>
 <tbody>
 
 <tr th:each="var: ${list}">
 <td th:text="${var.name}">
-<td th:text="${var.description}">
+
 <td th:text="${var.schedule}">
-<td th:text="${var.quotaMaxStudents}">
-<td th:text="${var.teacher.firstName}+' '+${var.teacher.lastName}">
-<td>
-<th:block th:each="st, iter: ${var.users}">
+
+<!-- <th:block th:each="st, iter: ${var.users}">
 <label th:text="${st.firstName}"></label>
  <th:block th:if="${!iter.last}">  , </th:block>
-    </td>
+    </td>-->
  
     <!-- <a th:href="@{/Persona/actualizar/{idPersona}(idPersona=${var.idPersona})}"  -->
-    <td><a th:href="@{/SubjectStudent/addStudent/{id_subject}(idSubject=${var.idSubject})}">
-    <img src="/images/edit.png" alt="Edit"
-			width="30" height="30">view more information</a>
+    <td><a class="active" id="link" th:href="@{/SubjectStudent/addStudent/{id_subject}(idSubject=${var.idSubject})}">
+    <img src="/images/search.png" alt="Edit"
+			width="30" height="30">View more</a>
 			
 			</td>
 </tbody>

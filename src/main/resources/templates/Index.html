@@ -28,7 +28,7 @@
 <body id="body">
 <form method="POST" th:action="@{/logout}">
 					<a href="#" onclick="this.parentNode.submit();">
-					<img id="img4" src="static/images/logout.png" th:src="@{/images/logout.png}"></a>
+					<img title="Logout" id="img4" src="static/images/logout.png" th:src="@{/images/logout.png}"></a>
 				</form>
 <div class="container">
 
@@ -41,19 +41,17 @@
         </div>      
     </div>
     
-    <a class="active" href="/SubjectStudent"><img id="img" src="static/images/ins.png" th:src="@{/images/ins.png}"/></a>
-    <a class="active" href="/Subject"><img id="img" src="static/images/subject.jpg" th:src="@{/images/subject.jpg}"/></a>
-            <a class="active" href="/Teacher"><img id="img1" src="static/images/teacher.png" th:src="@{/images/teacher.png}"/></a>
-		<a href="/Student"><img id="img2" src="static/images/student.png" th:src="@{/images/student.png}"/></a>
+    <a title="Inscription" class="active" href="/SubjectStudent"><img id="img" src="static/images/ins.png" th:src="@{/images/ins.png}"/></a>
+    <a title="Subject" class="active" href="/Subject"><img id="img" src="static/images/subject.jpg" th:src="@{/images/subject.jpg}"/></a>
+    <a title="Teacher" class="active" href="/Teacher"><img id="img1" src="static/images/teacher.png" th:src="@{/images/teacher.png}"/></a>
+	<a title="Student" href="/Student"><img id="img2" src="static/images/student.png" th:src="@{/images/student.png}"/></a>
 		
 
 </div>
 
 
-<footer class="footer">
+<footer class="footer" id="fot">
   <p>&copy; 2021 For Leidy Berrio</p>
 </footer>
-<body>
-
 </body>
 </html>
