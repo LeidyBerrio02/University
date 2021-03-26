@@ -3,6 +3,9 @@ package com.university.demo.model;
 import java.util.List;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -15,20 +18,28 @@ public class Subject {
 	@Column(name="id_subject")
 	private Long idSubject;
 	
+	@NotNull
+	@Size(min=5, max=100)
 	@Column(name="name")
 	private String name;
 	
+	@NotNull
+	@Size(min=50, max=225)
 	@Column(name="description")
 	private String description;
 	
+	@NotNull
+	@Size(min=10, max=225)
 	@Column(name="schedule")
 	private String schedule;
 	
+	@NotNull
 	//@JsonIgnore
 	@JoinColumn(name="id_teacher")
 	@ManyToOne(fetch = FetchType.EAGER)
 	private Teacher teacher;
 	
+	@NotNull
 	//@JsonIgnore
 	@ManyToMany(fetch = FetchType.LAZY , cascade = CascadeType.ALL)
 	@JoinTable(name="user_has_subject",
@@ -37,6 +48,8 @@ public class Subject {
 			)
 	private List<UserUniversity> users;
 
+	@NotNull
+	@Min(10)
 	@Column(name="quota_max_students")
 	private int quotaMaxStudents;
 

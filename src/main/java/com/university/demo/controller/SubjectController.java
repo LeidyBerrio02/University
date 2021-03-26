@@ -7,6 +7,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -53,7 +54,11 @@ public class SubjectController {
 	}
 	
 	@PostMapping("/saving")				//object
-	public String create(@ModelAttribute("subject")@Valid Subject subject) {
+	public String create(@ModelAttribute("subject")@Valid Subject subject, BindingResult bindingResult) {
+		if (bindingResult.hasErrors()) {
+			
+			return "redirect:/Subject";
+		}
 		 subjectService.create(subject);
 		 return "redirect:/Subject";
 	}

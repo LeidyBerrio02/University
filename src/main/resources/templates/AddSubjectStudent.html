@@ -19,7 +19,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 					<img id="img4" src="static/images/logout.png" th:src="@{/images/logout.png}"></a>
 				</form>
 <div class="container">
-<a class="active" href="/Inicio"><img id="img3" src="static/images/home2.png" th:src="@{/images/home2.png}" width="90" height="90"/></a>
+<a class="active" href="/Inicio"><img id="img3" title="Home" src="static/images/home2.png" th:src="@{/images/home2.png}" width="90" height="90"/></a>
 
 
 			<h3>Information</h3><hr>
@@ -28,16 +28,16 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 		<input type="hidden" name="idSubject" th:field="*{idSubject}">
 		
 
-		<label>Name</label>
-		<input type="text" id="name" th:field="*{name}" required placeholder="Name">
-		<label>Description</label>
-		<textarea id="description" th:field="*{description}" required placeholder="Description" rows="2" cols="40"></textarea>
-		<label>Schedule</label>
-		<input type="text" id="schedule" th:field="*{schedule}" required placeholder="Days - Hours" >
-		<label>Coupons</label>
-		<input type="number" id="qouta_max_students" th:field="*{quotaMaxStudents}" required > 
-		<label>Teacher</label>
-        <select th:field="*{teacher.idTeacher}" required>
+		<label>Name: </label>
+		<input type="text" id="name" th:field="*{name}" required placeholder="Name" readonly="readonly"><br>
+		<label>Description: </label><br>
+		<textarea id="description" th:field="*{description}" required placeholder="Description" rows="2" cols="40" readonly="readonly"></textarea><br>
+		<label>Schedule: </label>
+		<input type="text" id="schedule" th:field="*{schedule}" required placeholder="Days - Hours" readonly="readonly" ><br>
+		<label>Coupons: </label>
+		<input type="number" id="qouta_max_students" th:field="*{quotaMaxStudents}" required readonly="readonly"> <br>
+		<label>Teacher: </label>
+        <select disabled th:field="*{teacher.idTeacher}" required>
 		<option th:each="var: ${listTeacher}"  th:value="${var.idTeacher}" th:text="${var.firstName}+' '+ ${var.lastName}"></option>
 		</select>
 		

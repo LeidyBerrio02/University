@@ -3,6 +3,7 @@ package com.university.demo.model;
 import java.util.List;	
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -16,12 +17,18 @@ public class Teacher {
 	@Column(name="id_teacher")
 	private Long idTeacher;
 	
+	@NotNull
+	@Size(min=3, max=70)
 	@Column(name="first_name")
 	private String firstName;
 	
+	@NotNull
+	@Size(min=3, max=100)
 	@Column(name="last_name")
 	private String lastName;
 	
+	@NotNull
+	@Size(min=7, max=15)
 	@Column(name="DNI")
 	private String DNI;
 	

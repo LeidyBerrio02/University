@@ -6,6 +6,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -60,7 +61,10 @@ public class SubjectStudentController {
 	}
 	
 	@PostMapping("/saving")				//object
-	public String create(@ModelAttribute("subject")@Valid Subject subject) {
+	public String create(@ModelAttribute("subject")@Valid Subject subject,  BindingResult bindingResult) {
+		if (bindingResult.hasErrors()) {
+			return "redirect:/SubjectStudent";
+		}
 		subjectService.minQouta(subject);
 		 subjectService.create(subject); 
 		 return "redirect:/SubjectStudent";
@@ -85,7 +89,10 @@ public class SubjectStudentController {
 	}*/
 	
 	@GetMapping("/addStudent/{id_subject}")
-	public String addStudent(Model modelo, Subject subject ){
+	public String addStudent(Model modelo, Subject subject ,  BindingResult bindingResult) {
+		if (bindingResult.hasErrors()) {
+			return "redirect:/SubjectStudent";
+		}
 		subject = subjectService.search(subject);
 									//object
 		modelo.addAttribute("subject",subject);

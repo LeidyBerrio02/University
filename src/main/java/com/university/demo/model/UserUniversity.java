@@ -3,6 +3,7 @@ package com.university.demo.model;
 import java.util.List;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 
 @Entity(name="useruniversity")
 @Table(name="useruniversity")
@@ -13,27 +14,42 @@ public class UserUniversity {
 	@Column(name="id_user")
 	private Long idUser;
 	
+	@NotNull
+	@Size(min=7, max=30)
 	@Column(name="username")
 	private String username;
 	
 	@Column(name="password")
 	private String password;
 	
+	@NotNull
+	@Size(min=3, max=70)
 	@Column(name="first_name")
 	private String firstName;
 	
+	@NotNull
+	@Size(min=3, max=70)
 	@Column(name="last_name")
 	private String lastName;
 	
+	@NotNull
+	@Size(min=6, max=15)
 	@Column(name="number_phone")
 	private String numberPhone;
 	
+	@NotNull
+	@Size(min=10, max=200)
 	@Column(name="address")
 	private String address;
 	
+	@NotNull
+	@Size(min=10, max=100)
+	@Email(message = "Please enter a valid e-mail address")
 	@Column(name="mail")
 	private String mail;
 	
+	@NotNull
+	@Min(18)
 	@Column(name="age")
 	private int age;
 
